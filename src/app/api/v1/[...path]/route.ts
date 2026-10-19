@@ -24,7 +24,7 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ p
 async function proxyRequest(request: Request, { path }: { path: string[] }) {
   const pathString = path.join('/');
   const url = new URL(request.url);
-  const targetUrl = `http://localhost:6398/api/v1/${pathString}${url.search}`;
+  const targetUrl = `${process.env.BACKEND_URL || 'https://ghm-server-ten.vercel.app'}/api/v1/${pathString}${url.search}`;
 
   const headersList = await headers();
   const proxyHeaders = new Headers();

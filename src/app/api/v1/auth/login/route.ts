@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const { email, password } = body;
 
     // Direct call to the backend server
-    const response = await fetch('http://localhost:6398/api/v1/auth/login', {
+    const response = await fetch(`${process.env.BACKEND_URL || 'https://ghm-server-ten.vercel.app'}/api/v1/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),

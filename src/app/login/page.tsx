@@ -29,7 +29,7 @@ export default function LoginPage() {
       router.replace('/dashboard');
     } catch (err) {
       if (err instanceof ApiError) setError(err.message);
-      else setError('Unable to reach the server. Is the API running on port 6398?');
+      else setError('Unable to reach the server. Is the API reachable?');
     }
   };
 

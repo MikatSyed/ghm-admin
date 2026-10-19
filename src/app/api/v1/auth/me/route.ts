@@ -14,7 +14,7 @@ export async function GET() {
     }
 
     // Proxy the request to the backend server with the same Authorization header
-    const response = await fetch('http://localhost:6398/api/v1/auth/me', {
+    const response = await fetch(`${process.env.BACKEND_URL || 'https://ghm-server-ten.vercel.app'}/api/v1/auth/me`, {
       method: 'GET',
       headers: {
         'Authorization': authHeader,
